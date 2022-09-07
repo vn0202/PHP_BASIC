@@ -66,6 +66,7 @@ tác với các phần tử DOM của trang web. Tạo ra HTML và CSS của tra
 - Trong php các hàm , các lớp, và các hàm do người dùng định nghĩa là không phan biệt chữ hoa chữ thường. Khuyến khich sử dụng chữ thường.
 - Các biến trong PHP phân biệt chữ hoa chữ thường. 
 
+
    ``` <?php echo "Hello world";?> ```
 
 
@@ -73,3 +74,63 @@ tác với các phần tử DOM của trang web. Tạo ra HTML và CSS của tra
  PHP không có kiểu dữ liệu một rõ ràng, nhưng kiểu của 1  biến được xác định bằng giá trị của nó được gắn hoặc bởi kiểu nó được ép.   
  Một vài kiểu dữ liệu trong php: 
 - null: Đại diện cho môt biến không được gắn giá trị hoặc có thể gán trực tiếp.
+```php 
+$foo = null;
+```
+ Câu lệnh này vô hiệu hóa biến và giá trị của nó là void hoặc undifined nếu được gọi. Biến bị xóa khỏi bộ nhớ.  
+ 
+ - boolean: `true` hoặc `false`. Thường được sử dụng trong cấu trúc điều khiển.   
+ **Note**: các giá trị sau khi ép kiểu sang boolean có giá trị là `false`:
+     - Một mảng rỗng hay 1 chuỗi rỗng.
+     - Một giá trị zero : 0 , 0.00, "0" 
+     - null   
+       Các giá trị còn lại sẽ là true. (kể cả chuỗi 'false' cũng là true). Do đó cần lưu ý khi so sánh, nên dùng `===` để bảo đảm. 
+ ```php 
+ $foo= true;
+$bar = false;
+ if($foo){
+//code }
+els{
+//code
+}
+   $foo= "0";
+var_dumb((bool)$foo) // result: (boolean) false;
+   $bar ='false';
+var_dump((bool)$bar) //result: (boolean) true;
+```
+- Integer: là kiểu số nguyên dương hoặc âm. Kích thường của số nguyên php tủy thuộc vào môi trường. Không hỗ trợ số nguyên không dấu.
+- Float : số chấm động, double hoặc float là các số thập phân.
+ ```php 
+$number1= 0.5;
+$number2 = 9.4;
+$number3 = -INF;
+```
+- Array : là một biến đặc biệt, chứa nhiều giá trị trong cùng 1 tên biến. Có các dạng mảng sau : mảng lập chỉ mục, mảng liên kết và mảng đa chiều.  
+
+  - Mảng chỉ mục: được đánh số thứ tự từ 0 đến phần tử ( số lượng phần tử mảng - 1) 
+       ```php 
+    $array = array( 1,2,3);
+    $array = ["hello", "world"];
+    ```
+  - Mảng kết hợp: là mảng có các khóa được đặt tên ứng với giá trị tương ứng  
+
+       ```php
+         $array = ['fistname'=>'hello', 'lastname'=>'world'];
+       ```
+  - Mảng đa chiều: là mảng có chứa nhiều hơn 1 hoặc nhiều mảng .
+      ```php 
+    $array = [
+               [1,2,3],
+               [4,5,6],
+               [7,8,9] 
+              ];
+      ```
+- String: Giống như 1 mảng các ký tự: 
+      ```php 
+           $string = "hello world";
+      ``` 
+- Object: là thực thể của 1 lớp. Các thuộc tinh và phương thức của nó có thể truy cập bằng toán tử trích xuất `->` 
+- Resource: là các biến nắm giữ quyền điều khiển để mở file, kết nối với cơ sở dữ liệu , luồng...  
+      ```php 
+          $variable = fopen('file.txt','r')
+      ```
