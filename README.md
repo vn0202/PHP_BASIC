@@ -64,9 +64,10 @@ tác với các phần tử DOM của trang web. Tạo ra HTML và CSS của tra
 - Mỗi tệp lệnh PHP bắt đầu và kết thúc bằng cặp thẻ `<?php  ?>`.Kết thúc câu lệnh bằng dấu `;`. Với câu lệnh kết thúc trước thẻ đóng có thể bỏ qua dấu `;`. Thậm chí có thể bỏ thẻ đóng nếu sau tệp không có câu lệnh nào.
 - Có thể đặt tập lệnh ở bắt kỳ đâu trong tài liệu.
 - Trong php các hàm , các lớp, và các hàm do người dùng định nghĩa là không phan biệt chữ hoa chữ thường. Khuyến khich sử dụng chữ thường.
-- Các biến trong PHP phân biệt chữ hoa chữ thường.
-        
-            <?php echo "Hello world";?>
+- Các biến trong PHP phân biệt chữ hoa chữ thường. 
+
+   ``` <?php echo "Hello world";?> ```
+
 
 ### PHP data type 
  PHP không có kiểu dữ liệu một rõ ràng, nhưng kiểu của 1  biến được xác định bằng giá trị của nó được gắn hoặc bởi kiểu nó được ép.   
