@@ -45,7 +45,30 @@ tác với các phần tử DOM của trang web. Tạo ra HTML và CSS của tra
    - Độ ưu tiên của id > class > tag. 
    - Khi có thêm thuộc tính !**important** thì có độ ưu tiên hiển thị lớn nhất.
 ## Introduction PHP 
-
+### Khái niệm
 - PHP là viết tắt của PHP: HyperText Preprocessor.
 - PHP là ngôn ngữ kịch bản (scripting language) , mã nguồn mở được sử dụng rộng rãi và hoàn toàn miễn phí.
 - Các câu lệnh PHP thực thi phía máy chủ và đưọc sử dụng để tạo các ứng dụng web.
+
+### Đặc điểm:
+- PHP chạy trên nhiều nền tảng khác nhau 
+- PHP tương thích với hầu hết các máy chủ ngày nay (Apache, nginx,IIS,,)
+- Hỗ trợ nhiều loại cơ sở dữ liệu 
+- PHP là hoàn tòan miễn phí.
+### Tệp php 
+- có phần mở rộng là .php 
+- Có thể chứa văn bản, HTML, JS và mã PHP.
+- Được thưc thi trên máy chủ và trả về trình duyệt dưới dạng HTML thuần túy
+### Cú pháp:
+- Mỗi tệp PHP được thực thi trên máy chủ và trả về dưới dạng HTML thuần túy.
+- Mỗi tệp lệnh PHP bắt đầu và kết thúc bằng cặp thẻ `<?php  ?>`.Kết thúc câu lệnh bằng dấu `;`. Với câu lệnh kết thúc trước thẻ đóng có thể bỏ qua dấu `;`. Thậm chí có thể bỏ thẻ đóng nếu sau tệp không có câu lệnh nào.
+- Có thể đặt tập lệnh ở bắt kỳ đâu trong tài liệu.
+- Trong php các hàm , các lớp, và các hàm do người dùng định nghĩa là không phan biệt chữ hoa chữ thường. Khuyến khich sử dụng chữ thường.
+- Các biến trong PHP phân biệt chữ hoa chữ thường.
+        
+            <?php echo "Hello world";?>
+
+### PHP data type 
+ PHP không có kiểu dữ liệu một rõ ràng, nhưng kiểu của 1  biến được xác định bằng giá trị của nó được gắn hoặc bởi kiểu nó được ép.   
+ Một vài kiểu dữ liệu trong php: 
+- null: Đại diện cho môt biến không được gắn giá trị hoặc có thể gán trực tiếp.
