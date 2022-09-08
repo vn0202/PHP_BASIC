@@ -494,3 +494,199 @@ and
 </tr>
 
 </table>
+
+### Cấu trúc điều khiển 
+ 
+  #### if else statements 
+
+- Câu lệnh điều khiển if /else thực thi khối mã nếu điều kiện là đúng, nếu điều kiện sai sẽ thực hiện khối mã khác 
+  ```php 
+   if(condition){
+  //your code
+  }
+  else{
+  //your code
+  }
+  ```
+  - Câu lệnh if (condition1).. elseif(condition2).. else .Sẽ kiểm tra condition nếu đúng thì sẽ thực thi khối mã, nếu sai sẽ kiểm tra condition2.. nếu không có không có condtion nào true sẽ thực thi khối mã else  
+  ```php 
+   if(condition1){
+  //your code}
+  elseif(condition2){
+  //your code
+  }
+  ...
+  else{
+  //your code
+  }
+  ```
+#### Cấu trúc switch case 
+- Cho phép thực thi các hành động khác nhau dựa trên điều kiện  
+- Cú pháp : 
+
+    ```php 
+  switch(n){
+  case label1 : 
+  //your code 
+  break;
+  case label2 : 
+  //your code
+  break;
+  case label3: 
+  //your code 
+  break ;
+  ...
+  default: 
+  // your code
+    ```
+ - Khi thực thi mã, biểu thức n sẽ được đánh giá 1 lần và so sánh với từng trường hợp. Nếu thỏa mãn trường hợp nào sẽ thực thi khôi mã của trường hợp đó. 
+lệnh `break` được dùng để thoát lệnh. Khối mã trong `default` sẽ được chay khi không có trường hợp nào thỏa mãn 
+ 
+#### Vòng lặp 
+ Được sử dụng để thực thi các khối code giống nhau, miễn là điều kiện đúng 
+ 
+#### for  
+ - Lặp qua một khối code với số lần cụ thể 
+ - cú pháp : 
+    ```php 
+    for( int counter, conditional , increament counter){
+   //your code
+   }
+   ```
+  Khi bắt đầu vòng lặp, biến đếm counter được khởi tạo 1 lần duy nhất trong lần đầu, sau đó kiểm tra điều kiện. Nếu điều kiện đúng, thực thi mã, sau đó tăng giá trị biển đểm lên,
+sau đó kiểm tra điều kiện, nếu điều kiện đúng thực hiện lại các bước như trên, ngược lại kết thúc vòng lặp. 
+#### foreach: 
+ - Dùng để lặp qua các phần tử của 1 mảng.
+ - Cú pháp:
+   ```php 
+    foreach ( $array as $val) 
+   {
+   // your code
+   }
+   foreach( $array as $key=>$val){
+   //your code 
+   }
+   ```
+#### while : 
+ - Thường đưọc dùng cho lặp lại khối mã vơi số lần không biết chính xác 
+ - Cú pháp : 
+     ```php 
+    while(condition)
+   {
+   //your code
+    
+   }
+     ```
+   - Vòng lặp sẽ luôn diễn ra khi điều kiện đúng. chú ý, khi sử dụng while, nếu không chú ý tới điều kiện dễ xảy ra trường hợp lặp vô hạn. 
+   
+#### Do while 
+- Tương tự như `while`, khác là `do while` sẽ thực thi câu lệnh ít nhất 1 lần dù cho điều kiện có đúng không 
+- Cú pháp : 
+     ```php 
+   do{
+  //your c
+  ode
+  }while(condition)
+     ```
+##### break and contine : 
+ Được sử dụng để kết thúc vòng lặp hoặc bỏ qua vòng lặp 
+  ###  String  function 
+
+ - Hàm chop(): Dùng để loại bỏ các khoảng trắng hoặc các ký tự được chỉ định .Cú pháp : `chop($string, charlist)`
+  ```php 
+  $string = "Hello world   ";
+ $string2 = "Vu Van Nghia";
+ echo $string .$string2 //Hello world  Vu Van Nghia;
+ echo chop($string) . $string2 // Hello worldVu Van Nghia;
+  ``` 
+- chunk_split: Cắt chuỗi thành nhiều chuỗi nhỏ hơn .Cú pháp `chunk_split($string, lengtg, separator)`
+   ```php 
+   $string = "Hello world";
+  echo chunk_split($string,1,'.') 
+   ```
+- explode: Ngắt 1 chuỗi sang 1 mảng: Cú pháp : `explode(separator,$string, $limit )`
+ ```php 
+ $string = "hello world, Im a dev";
+ $newarr= explode(" ", $string, 2);
+ print_r($newarr) 
+```
+- html_entity_decode: Chuyển các thực thể HTML sang ký tự:  `html_entity_decode($str, flag, character_set)`
+  ```php 
+   $str = '&lt;a href=&quot;https://www.w3schools.com&quot;&gt;w3schools.com&lt;/a&gt;';
+   echo html_entity_decode($str);
+  ```
+- htmlentities: Chuyển các ký tự HTML sang thực thể : `html_encode(string, flag, character_set,double_encode`
+ 
+ ```php 
+ $str = '<a href="https://www.w3schools.com">Go to w3schools.com</a>';
+echo htmlentities($str);
+ ```
+- htmlspecialchars_decode: Chuyển đổi các thực thể HTML được định nghĩa trước sang ký tự. `htmlspecialchars_decode($string, $flag)`
+
+  ```php 
+  $string = "Hello world"; 
+  echo htmlspecialchars_decode($string);
+  ```
+- htmlspecialchars: Chuyển đổi các ký tự HTML định nghĩa trước sang thực thể. 
+ 
+  ```php 
+  $str = "This is some <b>bold</b> text.";
+  echo htmlspecialchars($str); // output: This is some &lt;b&gt;bold&lt;/b&gt; text.
+  ```
+- implode: Chuyển 1 mảng sang chuỗi : `implode(separator, $array)  `
+ 
+  ```php 
+   $array = ['hello', 'world', "how", "are", "you"];
+  echo implode('-',$array) //output : hello-world-how-are-you
+  ```
+- join: Bí danh của hàm implode: `join(separator, $array)`
+- ltrim: Loại bỏ các ký tự khoảng trắng hay các ký tự được chỉ định ở bên trái chuỗi. `ltrim($string,listchar)`
+
+  ```php 
+   $string = "TThis is test" ;
+  echo ltrim($string, "T")//output: his is test
+  ```
+- md5(): Băm chuỗi . Dùng cho các chữ ký số 
+- number_format: Dùng để định dạng số : `number_format(number, decimal, decimalpoint, separator)` 
+
+   ```php 
+   echo number_format( 19999.9,2,'-') //output: 19,999-20
+   ```
+- trim: Loại bỏ các ký tự khoảng trắng hoặc các ký tự chỉ định ở hai đầu của chuỗi :`trim(string, charlist)`
+
+  ```php 
+   $string = " Vu Van Nghia ";
+  echo "hello world" . $string . "is a dev" //output : hello world Vu Van Nghia is a dev ;
+  echo "hello world". trim($string) . "is a dev; //output : hello worldVu Van Nghiais a dev;
+  ```
+- str_replace: dùng để thay thế các ký tự trong chuỗi . `str_replace(find,replace,string,count)`
+
+   ```php 
+  $string = "Hello world";
+   echo str_replace ('H','h', $string) //output: hello world
+   ```
+- str_ireplace: giống `str_replace` nhưng tìm kiếm không phân biệt chữ hoa hay chữ thường
+
+   ```php
+  $string = "Hello world , hi you ";
+  echo str_ireplace('h','a', $string )//output: aello world , ai you 
+   
+   ```
+- str_repeat: Dùng để lặp lại chuỗi với số lần đưược chỉ định . str_repeat($string, number)
+  
+  ```php 
+   echo str_repeat('nghia',3); //output: nghianghianghia
+  ```
+- str_shuffle: thay đổi ngẫu nhiên các ký tự của chuỗi `str_shuffle(string)`
+- str_split: Tách 1 chuỗi sang mảng. `str_split(string,number)`. Tra về `false` nếu number nhỏ hơn 1
+  
+   ```php 
+   print_r str_split('hello',3)//output: array( [0]=>'hel',[1]=>'lo')
+   ```
+  
+- str_word_count: đếm số từ của chuỗi .`str_word_count(string, return, char). Tham số return nhận 3 giá trị là 0,1,2 xác định cách hàm trả về
+ 
+   ```php  
+  print_r str_word_count('vu van nghia' , 1) //output: array( [0]=>'vu',[1]=>'van', [2]=>'nghia']
+   ```
+- 
