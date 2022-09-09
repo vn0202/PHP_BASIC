@@ -689,4 +689,147 @@ echo htmlentities($str);
    ```php  
   print_r str_word_count('vu van nghia' , 1) //output: array( [0]=>'vu',[1]=>'van', [2]=>'nghia']
    ```
+- strchr: Tìm lần xẩy ra đầu tiên trong 1 chuỗi và trả về phần còn lại của chuỗi (mặc định ) hoặc trước chuỗi được tìm kiếm : `strchr(string, search, mode=fasle)`
+
+    ```php 
+  echo strchr('vu van nghia','van')//output: van nghia 
+    ```
+- strcmp: so sánh hai chuỗi ( phân biệt hoa và thường ).
+- strcasecmp: so sánh  hai chuỗi (không phân biệt hoa thường );
+- strncmp,strncasecmp: so sánh hai chuỗi với số ký tự chỉ định 
+- strip_tags: Loại bỏ các thẻ HTML, XML và PHP. `strip_tags(string, allow)`. Tham số `allow` cho phép chỉ rõ các thẻ không bị loại bỏ
+
+  ```php 
+  echo strip_tags('<h1>Hello world </h1>')//output: Hello world
+  echo '<h1>Hello world </h1>'//output: <h1> hello world </h1>
+  ```
+- stripos: Tìm kiếm và trả về vị trí của phần tử đầu tiên được tìm thấy . `stripos(string, search, index)`. Trả về FALSE nếu không tìm thấy 
+ 
+    ```php 
+  echo stripos('Vu Van Nghia",'van')//output: 3;
+    ```
+- strpbrk: Tìm kiếm và trả về và phần còn lại của chuỗi từ vị trí mà ký tự đầu tiên trong chuỗi khớp `strpbrk(string, char_list)`
+
+  ```php 
+  echo strpbrk("Hello world",'weo')//output: world;
+  ```
+- strrchr: Tìm kiếm vị trí xảy ra cuối cùng của chuỗi trong chuỗi khác và trả về phần còn lại của chuỗi từ vị trí được tìm thấy. `strrchr(string, chars)`
+
+    ```php 
+  echo strrchr("Hello ,Hi","H") //output: Hi
+    ```
+- strrev: Đảo ngược chuỗi .
+- strripos, strrpos: Tìm kiếm lần cuối cùng chuỗi xuất hiện và trả về vị trí nơi tìm thấy.  
+
+  ```php 
+   echo strrpos('Vu Van Nghia',"V")//output: 3
+  ```
+- strtolower, stringtoupper : Chuyển các ký tự sang thường hoặc in hoa.
+- substr: Sử dụng để trả về 1 phần của chuỗi. `substr(string, start, end)`
+
+  ```php 
+   echo substr("Hello world",6)//output: world
+  ```
+- substr_replace:Thay thế 1 phần của chuỗi với chuỗi khác: `substr_replace(string1, string2,start, length)`;
+   
+  ```php 
+  echo substr_replace("Hello world" , "im a dev" , 3, 1)// output : Helim a dev world
+  ```
+
+### Array function
+- array : Hàm dùng để tạo mảng 
+- array_chunk: Dùng để cắt mảng thành các mảng con. `array_chunk(array,size)`;
+ 
+   ```php 
+   $array = ['vu','van','nghia','nam','dinh'];
+  print_r(array_chunk($array,2));
+  //output: 
+  Array
+   (
+   [0] => Array
+   (
+   [0] => Vu
+   [1] => Van
+   )
+
+    [1] => Array
+        (
+            [2] => Nghia
+            [3] => nam
+        )
+
+    [2] => Array
+        (
+            [4] => dinh
+        )
+
+    )
+
+   ```
+- array_ column: Lấy ra các giá trị từ 1 cột đơn trong bảng. `array_column(array, column_key,index_key)` 
+ 
+
+  ```php 
+  $array = [
+   ['firstname'=>'Vu van', 'lastname'=>'Nghia', 'address'=>'nam dinh'],
+   ['firstname'=>'Nguyen Khanh', 'lastname'=>"Huyen",'address'=>'nam dinh']
+   ];
+   print_r(array_column($array,'firstname );
+   //output: array( 
+      [0]=>'Vu Van',
+      [1]=>'Nguyen Khanh'
+      )
+  ```
+- array_combine: Tạo ra mảng mới tử hai mảng. Trong đó lấy giá trị của mảng thứ nhất làm `key` và giá trị là `giá trị` của phẩn tử tương ứng trong mảng. Hai mảng phải cùng số lượng phần tử . 
+- array_count_value: Tính số lần xuất hiện của các giá trị trong mảng. Trả về mảng mới có `key` là các giá trị  của mảng và `value` là số lần xuất hiện của giá trị đó. 
+- array_diff: So sánh `value ` hai mảng và trả về sự khác nhau của mảng 1 so với các mảng khác ( chỉ trả về cái mà các mảng khác không có so với mảng 1)
+- array_diff_assoc: So sánh cả `key` và `value` của hai mảng, trả về những thứ của mảng 1 mà các mảng khác không có. 
+- array_diff_key: so sánh `key` của hai mảng và trả về các phần tử có `key` mà mảng 2 không có. 
+- array_fill: Dùng để điền các giá trị vào mảng. `array_fill(index_start,number,value `
+- array_filter: Dùng để lọc các phần tử của mảng bằng cách sử dụng callback . `array_filter(array,callback, flag)`. Hàm này truyền từng giá trị của mảng vào callback,nếu callback trả về `true`, phần tử hiện tại sẽ được thêm vào mảng trả về (khóa của mảng được giữ nguyên ). cờ `flag`
+được dùng để xác định chỉ truyền `key` hay cả `key` và `value` vào callback. 
+- array_intersect:  `array-intersect(arr1, arr2)`Dùng để so sánh hai mảng và lấy ra các giá trị giống nhau ( chỉ so sánh giá trị). Trả về mảng mới chứa các các  phần tử cảu mảng 1 có giá trị khớp 
+- array_intersect_assoc: So sánh hai mảng và lấy ra những phần tử khớp ( so sánh cả khóa và giá trị )
+- array_intersect_key: So  sánh hai mảng và lấy ra những phần tử của mảng 1 có`key` giống với `key` của mảng 2.
+- array_key_exists: Kiểm tra xem `key` có tồn tại trong mảng không. `array_key_exists( key, array ) `
+- array_key: Trả về 1 mảng chứa các `key` của mảng. 
+- array_map: Hàm này được sử dụng để thay đổi các giá trị của mảng theo giá trị của callback trả về . `array_map(callback,array)`
+- array_merge: Dùng để gộp các mảng lại với nhau . Khi gộp hai mảng, các phần tử có khóa là số nguyên, thì mảng trả về có các khóa là số nguyên bắt đầu từ 0 và tăng dần. Khi hai phần tử có cùng khóa,phần tử sau sẽ ghi đè phần tử trước.
+- array_merge_recursive: Giống hàm `array_merge` chỉ khác nhau là khi các phần tử có cùng khóa sẽ không bị ghi đè mà tạo thành 1 mảng 
+- array_pop: Xóa phần tử cuối cùng của mảng và trả về giá trị của phần tử cuối đó. `array_pop(array)`
+- array_push: thêm phần tử vào cuối mảng. 
+- array_shif: Xóa phần tử đầu mảng.
+- array_unshift: Thêm phần tử vào đầu mảng. 
+- array_reduce: Hàm này truyền các giá trị của mảng vào callback và nhận về 1 chuỗi. `array_reduce(array,callback,initial)`. Trường hợp bỏ qua khởi tạo, giá trị khởi tạo sẽ là giá trị của phần tử đầu tiên của mảng. 
+
+  
+    ```php 
+   $array = [1,2,3,4,5];
+  echo array_reduce($array, function($v1,$v2)
+  {return $v1 + $v2; },100)//output:121
+    ```
+   
+- array_replace : Hàm thay thế các gía trị của mảng thứ hai cho mảng đầu tiên.  
+     
+  - Cú pháp: array_replace($arr1,$arr2).
+  - Nếu khóa tồn tại trong mảng 1 và tồn tại trong mảng hai, giá trị của nó sẽ được thay thế, nếu nó chỉ tồn tại trong mảng 1,sẽ được giữ nguyeem. các khóa trong mảng 2 mà không có trong mảng 1 sẽ được tạo trong mảng 1
+
+- array_search: Dùng để tìm 1 giá trị  trong mảng và trả về `key`. Trả về `FALSE` nếu không tìm thấy. `array_search(array, value,mode) `
+- array_slice: dùng để cắt chuỗi. `array_slice(array,start,length,mode)`. Hàm này sẽ cắt chuỗi từ vị trí `start` và trả về mảng mới có `length` phần tử . 
+- array_splice: Dùng để xóa 1 phần tử của mảng và thay thế bằng các phần tử khác 
+
+   - cú pháp: array_splice(array,start,length,arr2)
+  - Trả về phần tử bị cắt.
+  - lưu ý: Các `key` được thay thế không được giữ nguyên. 
+     ```php 
+      $array1= ['name'=>'nghia', 'age'=>24,'address'=>'nam dinh'],
+      $array2 = ['color'=>'black','fav'=>'reading'],
+     print_r(array_splice($array1,0,1,$array2))
+     ```
+- array_unique: Xoá các phần tử có giá trị giống nhua, chỉ giữ lại phần tử đầu tiên. 
+- array_walk: cho phép chạy từng phần tử mảng trong hàm do người dùng định nghĩa .
+- compact : Tạo một mảng từ biến và giá trị của nó. 
+- extract: Tạo thành các biến từ các phần tử của mảng.
+-  in_array : Kiểm tra xem 1 giá trị có tồn tại trong mảng không. 
+- list: Dùng để gán gía trị cho 1 danh sách biến . 
 - 
