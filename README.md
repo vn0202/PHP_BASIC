@@ -495,6 +495,8 @@ and
 
 </table>
 
+##### Toán tử spread: 
+
 ### Cấu trúc điều khiển 
  
   #### if else statements 
@@ -832,4 +834,45 @@ echo htmlentities($str);
 - extract: Tạo thành các biến từ các phần tử của mảng.
 -  in_array : Kiểm tra xem 1 giá trị có tồn tại trong mảng không. 
 - list: Dùng để gán gía trị cho 1 danh sách biến . 
-- 
+-  destructuring.
+- spread 
+
+### File handling 
+- xử lý tệp cho phép thực hiện các thao tác với tệp: Thêm, sửa , đọc, cập nhật..
+#### Các hàm thao tác với tệp 
+ 
+- fopen: Dùng để mở 1 tệp 
+
+  - Cú pháp : `fopen(namefile, mode)`
+  - Hàm trả về kết quả dạng Resource 
+  - các chế độ mở file: 
+      
+        1, r: Mở file chỉ đọc. Con trỏ file bắt đầu ở vị trí đầu của file. 
+        2, w: mở file với chế độ chỉ ghi . Xóa nội dung của file hoặc tạo file mới nếu nó không tồn tại. Con trỏ file bắt đầu ở vị trí đầu file
+        3, a: Mở file chỉ ghi. Nếu file tồn tại nội dung, nội dung sẽ không bị xóa. Con trỏ file bắt đầu ở cuối file. Tạo file mới nếu không tồn tại 
+        4, x: Tạo file mới chỉ ghi. Trả về FALSE nếu file đã tồn tại. 
+        5, r+: Mở một file để đọc và ghi. Con trỏ file bắt đầu ở đầu file. 
+        6, w+: Mở file đọc và ghi. Nếu file tồn tại và có nội dung, nội dung file sẽ bị xóa. Nếu file không tồn tại, file mới được tạo ra. Con trỏ file ở vị trí bắt đầu của file.
+        7, a+: Mở file đoc và ghi. Nêu file tồn tại nội dung, nội dung sẽ không bị xóa. Con trỏ file ở vị trí cuối file. Tạo file mới nếu không tồn tại .
+        8, x+ : Tạo file mới đọc và ghi. Nếu file tồn tại , trả về FALSE. 
+  - fread: Đọc file `fread($myfile, length)`
+  - fclose: Đóng 1 tệp đang mở `fclose($myfile)`
+  - fgets: Đọc 1 dòng từ file. Sau khi gọi hàm, con trỏ file sẽ chuyển đến dòng tiếp theo. 
+  - fgetc: Đọc 1 ký tự. sau khi gọi hàm, con trỏ file trỏ đến ký tự tiếp theo.
+  - feof : Hàm dùng để kiểm tra xem đã đến cuối file chưa. 
+  - copy: Copy file tới file đích. `copy(namefile, tofile)`. Nếu `tofile` tồn tại sẽ bị ghi đè. 
+  - basename: Trả về tên file. `basename(pathtofile)`
+  - dirname: Trả về đường dẫn tới thư mục cha. `dirname(pathktofile, levels)`
+  - file: Đọc file và trả về dưới dạng mảng. Mỗi phần tử mảng là 1 dỏng. 
+  - file_exists: Kiểm tra xem 1 file có tồn tại không . 
+  - file_get_contents: Đọc file dưới dạng chuỗi. 
+  - file_put_contents: ghi dữ liệu vào tệp. 
+  - is_dir: Kiểm tra xem có phải tên 1 thư mục không.
+  - is_file: Kiểm tra xem có phải 1 file không. 
+  - mkdir: Tạo thư mục 
+  - move_upload_file: chuyển tệp đã tải lên đích mới. Nếu đích mới đã tồn tại sẽ bị ghi đè. 
+  - pathinfo: Trả vê thông tin của đường dẫn file. 
+  - rename; Thay tên thư mục hoặc tên file . 
+  - rmdir: Xóa thư mục 
+  - unlink: Xóa file 
+  - 

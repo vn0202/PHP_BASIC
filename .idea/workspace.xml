@@ -71,7 +71,7 @@
       <workItem from="1662602273918" duration="1344000" />
       <workItem from="1662603634478" duration="13855000" />
       <workItem from="1662645761024" duration="8039000" />
-      <workItem from="1662685210658" duration="16675000" />
+      <workItem from="1662685210658" duration="26940000" />
     </task>
     <servers />
   </component>
@@ -88,16 +88,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/../test_nginx/index.php</url>
-          <line>1</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
