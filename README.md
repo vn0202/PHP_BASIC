@@ -875,4 +875,3 @@ echo htmlentities($str);
   - rename; Thay tên thư mục hoặc tên file . 
   - rmdir: Xóa thư mục 
   - unlink: Xóa file 
-  - 
