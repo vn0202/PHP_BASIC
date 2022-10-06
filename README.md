@@ -875,3 +875,51 @@ echo htmlentities($str);
   - rename; Thay tên thư mục hoặc tên file . 
   - rmdir: Xóa thư mục 
   - unlink: Xóa file 
+
+
+### NGINX 
+
+NGINX là một web server mạnh mẽ mã nguồn mở. Nginx sử dụng kiến trúc đơn luồng, hướng sự kiện vì thế nó hiệu quả hơn Apache server. Nó cũng có thể làm những thứ quan trọng khác, chẳng hạn như load balancing, HTTP caching, hay sử dụng như một reverse proxy. Nginx là kiến thức không thể thiếu đối với một web developer, system administrator hay devops.
+  
+##### Những tính năng của NGINX
+
+###### Những tính năng của máy chủ HTTP Nginx
+- Có khả năng xử lý hơn 10.000 kết nối cùng lúc với bộ nhớ thấp.
+- Phục vụ tập tin tĩnh (static files) và lập chỉ mục tập tin.
+- Tăng tốc reverse proxy bằng bộ nhớ đệm (cache), cân bằng tải đơn giản và khả năng chịu lỗi.
+- Hỗ trợ tăng tốc với bộ nhớ đệm của FastCGI, uwsgi, SCGI, và các máy chủ memcached.
+- Kiến trúc modular, tăng tốc độ nạp trang bằng nén gzip tự động.
+- Hỗ trợ mã hoá SSL và TLS.
+- Cấu hình linh hoạt; lưu lại nhật ký truy vấn
+- Chuyển hướng lỗi 3XX-5XX
+- Rewrite URL (URL rewriting) dùng regular expressions
+- Hạn chế tỷ lệ đáp ứng truy vấn
+- Giới hạn số kết nối đồng thời hoặc truy vấn từ 1 địa chỉ
+- Khả năng nhúng mã PERL
+- Hỗ trợ và tương thích với IPv6
+- Hỗ trợ WebSockets
+- Hỗ trợ truyền tải file FLV và MP4
+###### Những tính năng máy chủ mail proxy của Nginx
+
+- POP3: USER/PASS, APOP, AUTH LOGIN/PLAIN/CRAM-MD5;
+- IMAP: LOGIN, AUTH LOGIN/PLAIN/CRAM-MD5;
+- SMTP: AUTH LOGIN/PLAIN/CRAM-MD5;
+- Hỗ trợ SSL, STARTTLS và STLS
+
+
+##### PHP-FPM 
+- PHP-FPM viết tắt của FastCGI Process Manager là một triển khai PHP giúp tăng tốc độ thực thi cho các ứng dụng web, đồng thời cho phép admin kiểm soát mức tiêu thụ tài nguyên trên server.
+- Một triển khai PHP (còn gọi là runtime) có nhiệm vụ phiên dịch và thực thi code. Các runtime truyền thống như mod_PHP của Apache hoạt động bên trong web server. Trong cách triển khai này, mỗi kết nối tồn tại sẽ tiêu thụ một phần tài nguyên nhất định của server. Do đó, nếu có quá nhiều kết nối đồng thời thì server có thể nhanh chóng cạn kiện tài nguyên, ảnh hưởng nghiêm trọng đến hiệu suất của website.
+
+- Mặt khác, PHP-FPM vận hành bên ngoài web server và sử dụng một nhóm các quy trình để thực thi code (nhóm này thường được gọi là pool, và các quy trình này được gọi là worker process). Các worker sẽ sẵn sàng đợi các request đến, đồng thời cho phép admin quản lý số lượng worker trong mỗi pool.
+
+ ![mo hinh ](./php-fpm-la-gi.webp)
+ 
+
+##### Tại sao nên run file PHP qua nginx và php-fpm 
+Nginx là một server web có hiệu suất cùng với tính sẵn sàng và khả năng mở rộng cao. Nginx được cấu tạo theo kiến trúc trước đơn luồng, không đồng bộ được điều khiển theo dạng modul, nó có quy mô cực kỳ tốt và ổn định trên các hệ thống đa xử lý và phần cứng máy chủ chung. Do đó sự kết hợp giữa PHP-FPM và Nginx có thể gọi là “Cặp đôi vàng” bởi sự kết hợp vô cùng hoàn hảo. Cặp đôi vàng này chứng minh sự đúng đắn khi kết hợp bằng cách thể hiện về hiệu suất tải một cách ấn tượng, mức tiêu thụ tài nguyên giảm đáng kể và sự ổn định của server.
+
+Khi Nginx kết hợp với PHP-FPM, bộ nhớ sẽ được tối ưu hóa hiệu suất, nhờ vào cấu trúc không đồng bộ của Nginx mà các sự kiện có thể lan rộng.
+
+Khi sử dụng PHP-FPM, PHP sẽ hoạt động độc lập như một dịch vụ riêng biệt qua cổng TCP/IP bằng cách thông dịch ngôn ngữ dựa vào phiên bản PHP. Lúc này Nginx chỉ tập trung xử lý các request HTTP là chủ yếu. Khi đưa sự độc lập và song song như vậy để làm phương pháp quản lý và vận hành sẽ giúp mang lại hiệu suất cao hơn đồng thời sẽ rút ngắn được thời gian thực thi hơn.
+
